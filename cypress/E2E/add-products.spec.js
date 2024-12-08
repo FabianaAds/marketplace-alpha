@@ -1,11 +1,20 @@
 /// <reference types="cypress" />
 import { login } from '../support/login';
+import '../support/commands';
 
-describe('Login', () => {
-  before("Access Login Page", () => {
+describe('Adicionar um produto tenda e um seller ao carrinho', () => {
+  beforeEach("Access Login Page", () => {
     login();
+    cy.clearAllSessionStorage();
+    cy.reload().wait(1000);
   });
 
-  it('successfully login', () => {
-  })
-});
+  it('Adicionar produtos', () => {
+   cy.AdicionarProdutosTenda();
+   cy.AdicionarProdutosSeller();
+   cy.Finalizarcompra();
+     
+  });
+
+    
+ });

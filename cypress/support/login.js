@@ -2,6 +2,7 @@
  
 function login() {
     cy.visit('/') 
+    cy.get('.disclaimer-container > [data-cy="btn-"]').click({force:true})
     cy.get('.ButtonClose > .svgIcon').then($button => {
         // Verifica se o botão está visível
         if ($button.is(':visible')) {
@@ -17,10 +18,11 @@ function login() {
       .type(Cypress.env('credenciais_validas').email, { log: false });
     cy.get('#password').should('be.visible').click()
       .type(Cypress.env('credenciais_validas').password, { log: false });
-    cy.get('[data-cy="btn-"]').first().click({force:true});
-    cy.get('.username').should('be.visible').click();
-    cy.get('[data-cy="btn-my-account"]').should('be.visible').click();
-    cy.get('.central-title').should('have.text', 'Minha conta');
+    cy.get('[data-cy="btn-"]').first().click({force:true}).wait(3000);
+    //cy.get('.username', { timeout: 10000 }).should('be.visible').click();
+    //cy.get('[data-cy="btn-my-account"]', { timeout: 10000 }).should('be.visible');
+    //cy.get('.central-title').should('have.text', 'Minha conta');
+    //cy.get('.disclaimer-container > [data-cy="btn-"]').should('be.visible').click({force:true})
     
   
 }

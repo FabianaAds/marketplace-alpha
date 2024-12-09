@@ -6,7 +6,6 @@ module.exports = defineConfig({
   viewportHeight: 1080,
   e2e: {
     setupNodeEvents(on, config) {
-      // Implementar eventos aqui, se necessário
     },
     baseUrl: 'https://marketplace-alpha.tendaatacado.com.br/',
     specPattern: 'cypress/e2e/**/*.spec.js',

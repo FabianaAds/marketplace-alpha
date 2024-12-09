@@ -1,6 +1,9 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  chromeWebSecurity: false,
+  viewportWidth: 1920,
+  viewportHeight: 1080,
   e2e: {
     setupNodeEvents(on, config) {
       // Implementar eventos aqui, se necessário
